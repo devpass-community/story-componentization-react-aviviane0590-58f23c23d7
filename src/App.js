@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import placeholderImg from "./images/dog_walking.svg";
+import Loading from "./components/Loading";
 
 function App() {
   const [breeds, setBreeds] = useState([]);
@@ -7,7 +8,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
   const [dogImages, setDogImages] = useState([]);
 
-useEffect(() => {
+  useEffect(() => {
     fetch("https://dog.ceo/api/breeds/list/all")
       .then((response) => {
         if (response.status === 200 || response.ok) {
@@ -65,7 +66,7 @@ useEffect(() => {
             className="btn btn-primary mx-2"
             disabled={!selectedBreed}
             onClick={searchByBreed}
-            style={{color: "#fff", cursor: "pointer"}}
+            style={{ color: "#fff", cursor: "pointer" }}
           >
             Search
           </button>
@@ -84,14 +85,7 @@ useEffect(() => {
             />
           )}
           {isLoading && (
-            <div className="d-flex align-items-center ">
-              <p className="h1 me-2">Loading</p>
-              <div
-                className="spinner-border ms-auto text-primary fs-3"
-                role="status"
-                aria-hidden="true"
-              ></div>
-            </div>
+            <Loading />
           )}
           {dogImages.length > 0 &&
             !isLoading &&
