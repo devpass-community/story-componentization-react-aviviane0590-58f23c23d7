@@ -9,5 +9,7 @@ export default function DogItem({imgSrc, selectedBreed, index, dogImages}){
             alt={`${selectedBreed} ${index + 1} of ${dogImages}`}
             />
         </>
+
+         
     )
 }
