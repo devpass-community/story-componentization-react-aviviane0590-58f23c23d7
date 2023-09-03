@@ -95,7 +95,7 @@ function App() {
                 imgSrc={imgSrc}
                 index={index}
                 selectedBreed={selectedBreed}
-                dogImages={dogImages}
+                dogImages={dogImages.length}
               />
               //<img
               //  key={`${index}-${selectedBreed}`}
